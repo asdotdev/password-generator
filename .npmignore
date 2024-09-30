@@ -1,0 +1,15 @@
+.github
+config
+node_modules
+src
+.eslintrc.cjs
+.gitignore
+.npmignore
+.prettierignore
+.prettierrc
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+package-lock.json
+SECURITY.md
+tsconfig.json

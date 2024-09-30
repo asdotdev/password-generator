@@ -1,0 +1,40 @@
+{
+  "name": "@asdotdev/password-generator",
+  "description": "A simple utility tool to generate password in terminal.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": false,
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc -w",
+    "link": "npm run unlink && npm link",
+    "unlink": "npm unlink --global @asdotdev/password-generator",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "build": "tsc"
+  },
+  "bin": {
+    "pwgen": "./dist/index.js"
+  },
+  "keywords": [
+    "password",
+    "password-genrator",
+    "generate-password"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Amitabh Sahu",
+    "email": "amitabh.sahu0008@gmail.com"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
