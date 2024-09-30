@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { errorColor, generatePassword, getVersion } from "./uttils.js";
+import {
+    errorColor,
+    generatePassword,
+    getVersion,
+    pwLenArg
+} from "./uttils.js";
+import { PW_MIN_LEN } from "./constants.js";
 
 const program = new Command();
 
@@ -15,13 +21,13 @@ program.description(
 
 program
     .option("-u, --uppercase", "include uppercase", false)
-    .option("-d, --digits", "include digits", false)
+    .option("-n, --numbers", "include numbers", false)
     .option("-s, --symbols", "include symbols", false)
     .option(
         "-l, --length <number>",
         "length of password (min: 8, max: 64)",
-        parseInt,
-        8
+        pwLenArg,
+        PW_MIN_LEN
     );
 
 program.version(getVersion(), "-v, --version", "display the current version");

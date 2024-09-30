@@ -1,27 +1,31 @@
 import {
     LOWERCASE_CHARS,
-    MAX_LEN,
-    MIN_LEN,
+    PW_MAX_LEN,
+    PW_MIN_LEN,
     NUMBER_CHARS,
     SYMBOL_CHARS,
-    UPPERCASE_CHARS,
+    UPPERCASE_CHARS
 } from "./constants.js";
 import { readFileSync } from "fs";
 
-export function textInColor(ansiColorCode: number, text: string) {
+export function textInColor(ansiColorCode: number, text: string): string {
     // Add ANSI escape codes to display text in color.
     return `\x1b[${ansiColorCode}m${text}\x1b[0m`;
 }
 
-export function successColor(str: string) {
+export function successColor(str: string): string {
     return textInColor(32, str);
 }
 
-export function errorColor(str: string) {
+export function errorColor(str: string): string {
     return textInColor(31, str);
 }
 
-export function getVersion() {
+export function pwLenArg(value: string): number {
+    return parseInt(value, 10);
+}
+
+export function getVersion(): string {
     try {
         const buffer = readFileSync("./config/app.json");
 
@@ -41,7 +45,7 @@ export const generatePassword = ({
     uppercase,
     numbers,
     symbols,
-    length,
+    length
 }: {
     uppercase: boolean;
     numbers: boolean;
@@ -53,8 +57,13 @@ export const generatePassword = ({
     if (numbers) includeedCharacters += NUMBER_CHARS;
     if (symbols) includeedCharacters += SYMBOL_CHARS;
 
+    let n = Math.max(PW_MIN_LEN, Math.min(length, PW_MAX_LEN));
+    if (isNaN(length)) {
+        console.warn("The length argument has an invalid value.");
+        n = PW_MIN_LEN;
+    }
+
     let generatedPassword = "";
-    const n = Math.max(MIN_LEN, Math.min(length, MAX_LEN));
     for (let i = 0; i < n; i++) {
         const randomIndex = Math.floor(
             Math.random() * includeedCharacters.length

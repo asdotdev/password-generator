@@ -8,6 +8,14 @@ A simple utility tool to generate password in terminal.
 npm install --global @asdotdev/password-generator
 ```
 
+or, try
+
+```
+npx @asdotdev/password-generator
+
+npx @asdotdev/password-generator -u -n -l 16
+```
+
 ## Usage
 
 ```
@@ -17,7 +25,7 @@ This utility tool helps you to generate password in terminal.
 
 Options:
   -u, --uppercase        include uppercase (default: false)
-  -d, --digits           include digits (default: false)
+  -n, --numbers          include numbers (default: false)
   -s, --symbols          include symbols (default: false)
   -l, --length <number>  length of password (min: 8, max: 64) (default: 8)
   -v, --version          display the current version
@@ -30,9 +38,9 @@ Default is all lowercase characters of with size 8
 
 > pwgen
 
-To add uppercase, digits and symbols respectivaly
+To add uppercase, numbers and symbols respectivaly
 
-> pwgen -u -d -s
+> pwgen -u -n -s
 
 To change leangth of the password
 
