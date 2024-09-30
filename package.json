@@ -36,5 +36,12 @@
   },
   "dependencies": {
     "commander": "^12.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asdotdev/password-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asdotdev/password-generator/issues"
   }
 }
