@@ -13,12 +13,16 @@ export function textInColor(ansiColorCode: number, text: string): string {
     return `\x1b[${ansiColorCode}m${text}\x1b[0m`;
 }
 
+export function errorColor(str: string): string {
+    return textInColor(31, str);
+}
+
 export function successColor(str: string): string {
     return textInColor(32, str);
 }
 
-export function errorColor(str: string): string {
-    return textInColor(31, str);
+export function warnColor(str: string): string {
+    return textInColor(33, str);
 }
 
 export function pwLenArg(value: string): number {
@@ -59,7 +63,7 @@ export const generatePassword = ({
 
     let n = Math.max(PW_MIN_LEN, Math.min(length, PW_MAX_LEN));
     if (isNaN(length)) {
-        console.warn("The length argument has an invalid value.");
+        console.log(warnColor("The length argument has an invalid value."));
         n = PW_MIN_LEN;
     }
 
