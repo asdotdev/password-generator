@@ -1,7 +1,7 @@
 {
   "name": "@asdotdev/password-generator",
   "description": "A simple utility tool to generate password in terminal.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "private": false,
   "main": "index.js",
